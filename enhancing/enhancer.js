@@ -12,15 +12,24 @@ module.exports = {
 // }
 
 function success(item) {
-  return { ...item };
+  if(item.enhancement<20){
+    let enhancedItem= { ...item,enhancement:item.enhancement+=1 };
+    return enhancedItem;
+  }else{
+    let enhancedItem= { ...item};
+    return enhancedItem;
+  }
 }
+  
+  
 
 function fail(item) {
   return { ...item };
 }
 
 function repair(item) {
-  return { ...item, durability:item.durability=100 };
+  let repairedItem= { ...item, durability:item.durability=100 };
+  return repairedItem;
 }
 
 function get(item) {

@@ -20,6 +20,17 @@ describe("enhancer item methods", () => {
 
   it("enhancer repairs an items durability to 100", () => {
     enhancer.repair(item);
+    expect(item.durability).not.toBe(10);
     expect(item.durability).toBe(100);
   });
+  it("success method increases enchantment by 1",()=>{
+      enhancer.success(item);
+      expect(item.enhancement).toEqual(4)
+  })
+  it("if enhancement level is max, does not increase",()=>{
+    if(item.enhancement=20){
+        enhancer.success(item)
+        expect(item.enhancement).not.toBeGreaterThan(20);
+    }  
+  })
 });
